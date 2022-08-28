@@ -23,7 +23,7 @@ class InsertarProductos extends Seeder
                 'precio' => 50000,
                 'imagen' => 'https://static.elcontainer.cl/20451-big_default/escritorio-hoobro-bf68dn01.jpg',
                 'categoria_id' => 2
-                ],
+            ],
             [
                 'codigo' => '10001',
                 'nombre' => 'Repisa un cuerpo',

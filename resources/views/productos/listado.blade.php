@@ -1,6 +1,6 @@
 @extends('layouts.master') 
 
-@section('title', 'Listado')
+@section('title', 'Listado_Productos')
 
 @section('content')
 
@@ -37,28 +37,16 @@
                 <img src="{{ $producto->imagen }}" alt="{{ $producto->nombre }}">
                 <div class="card-body">
                     <h5 class= "card-title">{{ $producto->nombre}}</h5>
+                    <p class= "card-text">{{ $producto->descripcion}}</p>
+                    <p class= "card-text">{{ "$" . $producto->precio}}</p>
                 </div>
             </div>
         </div>
     @endforeach
 </div>
 
-  <div class="form-group">
-    <button type="submit" style="background-color:#D27EF0" class="btn btn-lg">Buscar</button>       
-  </div></br>
-
-  <div style="border:2px solid brown; border-radius:22px; FONT-SIZE: 12pt; FONT-FAMILY: Arial; background-color:#48D1CC" align="center" class="col-sm-2">
-    <a href="/menuProductos">Ir al Menú</a>
-  </div>
-
-  <div style="border:2px solid brown; border-radius:22px; FONT-SIZE: 12pt; FONT-FAMILY: Arial; background-color:#48D1CC" align="center" class="col-sm-2">
-    <a href="/inicio">Ir a Inicio</a>
-  </div>
+<hr><a href="/productos/create" type="button" class="btn btn-secondary">Agregar Producto</a>
   
-  <div style="border:2px solid brown; border-radius:22px; FONT-SIZE: 12pt; FONT-FAMILY: Arial; background-color:#48D1CC" align="center" class="col-sm-2">
-    <a href="/login">Salir del Sistema</a>
-  </div>   
-
 </body>
 
 @stop

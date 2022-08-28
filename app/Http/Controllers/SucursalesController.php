@@ -9,12 +9,32 @@ class SucursalesController extends Controller
 {
     public function index(){
         $sucursales = Sucursal::get();
-
-        dd($sucursales);
     
         return view('sucursales.listado',[
             'sucursales' => $sucursales
         ]);
-        //return view('categorias.listado');
+    }
+
+    public function create(){
+        return view('sucursales.insertarSucursal');
+    }
+
+    public function store(Request $request){
+        $this->validate($request, [
+            'nombre' => 'required',
+            'ciudad' => 'required',
+            ]);
+        
+        $sucursal = new Sucursal();
+        $sucursal->nombre  = $request->nombre;
+        $sucursal->ciudad = $request->ciudad;
+        $sucursal->save();
+
+        $sucursales = Sucursal::get();
+
+    return view('sucursales.listado',[
+        'sucursales' => $sucursales
+    ]);              
+    
     }
 }
