@@ -24,4 +24,6 @@ Route::resource('/sucursales', SucursalesController::class);
 
 Route::resource('/productos', ProductosController::class);
 
+Route::get('/sucursales/{id}', 'App\Http\Controllers\SucursalesController@index');
 
+Route::get('/categorias/{id}', 'App\Http\Controllers\CategoriasController@index');

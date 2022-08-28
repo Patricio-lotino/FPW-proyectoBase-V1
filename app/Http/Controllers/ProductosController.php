@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Sucursal;
 class ProductosController extends Controller
 {
     public function index(){
-    $productos = Producto::get();
-    
+    $productos = Producto::get();    
     return view('productos.listado',[
         'productos' => $productos
     ]);
     }
 
     public function create(){
-        return view('productos.insertarProducto');
+        $sucursales = Sucursal::all();
+        return view('productos.insertarProducto', compact('sucursales'));
     }
 
     public function store(Request $request){
@@ -28,7 +29,7 @@ class ProductosController extends Controller
             'imagen' => 'required',
             'categoria_id' => 'required'
             ]);
-        
+            
         $producto = new Producto();
         $producto->codigo = $request->codigo;
         $producto->nombre  = $request->nombre;

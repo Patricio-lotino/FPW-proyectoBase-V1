@@ -31,3 +31,8 @@
 </body>
 
 @stop
+
+@section('footer')
+<hr><a href="/productos" type="button" class="btn btn-secondary">Volver</a>
+@stop
+

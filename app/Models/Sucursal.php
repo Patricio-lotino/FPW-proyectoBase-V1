@@ -12,6 +12,11 @@ class Sucursal extends Model
     protected $table = 'sucursales';
 
     public function productos(){
-        return $this->belongsToMany(Producto::class);
+        return $this->belongsToMany(Producto::class, 'prod_suc')
+            ->withPivot('sucursal_id','status');
+    }
+    
+    public function prod_suc(){
+        return $this->belongsTo(Prod_Suc::class);
     }
 }

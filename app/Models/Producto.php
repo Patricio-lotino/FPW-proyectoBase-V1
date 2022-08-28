@@ -12,10 +12,14 @@ class Producto extends Model
     protected $table = 'productos';
 
     public function categoria(){
-        return $this->belongsTo(Categoria::class, 'categoria_id');
+        return $this->belongsTo(Categoria::class);
     }
 
-    public function sucursales(){
-        return $this->belongsToMany(Sucursal::class);
-    }
+    public function sucursal(){
+        return $this->belongsToMany(Sucursal::class, 'prod_suc')
+            ->withPivot('producto_id', 'status');    }
+
+    public function prod_suc(){
+        return $this->belongsTo(Prod_Suc::class);
+    }    
 }
